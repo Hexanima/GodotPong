@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://csm6qganj2eb4"]
+
+[ext_resource type="PackedScene" uid="uid://di43kpnws4pbc" path="res://scenes/player.tscn" id="1_fgdj6"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_i12js"]
+[ext_resource type="PackedScene" uid="uid://bgto0gx8l5whr" path="res://scenes/floor.tscn" id="2_i6l62"]
+[ext_resource type="PackedScene" uid="uid://vysnp4p2w0un" path="res://scenes/ball.tscn" id="3_kolp3"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i12js")
+
+[node name="Player1" parent="." instance=ExtResource("1_fgdj6")]
+position = Vector2(-284, 0)
+
+[node name="Player2" parent="." instance=ExtResource("1_fgdj6")]
+position = Vector2(284, 0)
+UP = &"p2_up"
+DOWN = &"p2_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Floor" parent="." instance=ExtResource("2_i6l62")]
+position = Vector2(0, 160.5)
+
+[node name="Roof" parent="." instance=ExtResource("2_i6l62")]
+position = Vector2(0, -160.5)
+rotation = -3.14159
+
+[node name="Ball" parent="." instance=ExtResource("3_kolp3")]
