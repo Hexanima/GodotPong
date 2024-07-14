@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Ball
+
 @export var SPEED := 150.0
 
 var x_direction := -1

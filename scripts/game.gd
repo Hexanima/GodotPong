@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var ball = $Ball
+var newBall = preload("res://scenes/ball.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,4 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		ball.queue_redraw()
+		ball.queue_free()
+		ball = newBall.instantiate()
+		
+		add_child(ball)
