@@ -13,7 +13,6 @@ func _ready():
 
 func _physics_process(delta):
 	linear_velocity = Vector2(x_direction * SPEED,y_direction * SPEED)
-	
 	pass
 	
 func change_direction():
