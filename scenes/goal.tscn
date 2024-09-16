@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rr07ireidtfl"]
+
+[ext_resource type="Script" path="res://scripts/goal.gd" id="1_v2cuy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sqgr3"]
+normal = Vector2(1, 0)
+
+[node name="Goal" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_v2cuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_sqgr3")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://csm6qganj2eb4"]
+[gd_scene load_steps=6 format=3 uid="uid://csm6qganj2eb4"]
 
 [ext_resource type="PackedScene" uid="uid://di43kpnws4pbc" path="res://scenes/player.tscn" id="1_fgdj6"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_i12js"]
 [ext_resource type="PackedScene" uid="uid://bgto0gx8l5whr" path="res://scenes/floor.tscn" id="2_i6l62"]
 [ext_resource type="PackedScene" uid="uid://vysnp4p2w0un" path="res://scenes/ball.tscn" id="3_kolp3"]
+[ext_resource type="PackedScene" uid="uid://rr07ireidtfl" path="res://scenes/goal.tscn" id="5_u1nca"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i12js")
@@ -27,3 +28,15 @@ position = Vector2(0, -160.5)
 rotation = -3.14159
 
 [node name="Ball" parent="." instance=ExtResource("3_kolp3")]
+
+[node name="Goal1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_u1nca")]
+position = Vector2(-288, 0)
+player = NodePath("../Player1")
+
+[node name="Goal2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_u1nca")]
+position = Vector2(288, 0)
+rotation = 3.14159
+player = NodePath("../Player2")
+
+[connection signal="on_reset" from="Goal1" to="." method="_on_goal_1_on_reset"]
+[connection signal="on_reset" from="Goal2" to="." method="_on_goal_2_on_reset"]

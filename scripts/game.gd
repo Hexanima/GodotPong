@@ -13,15 +13,29 @@ func _ready():
 	_p2_in_pos = player_2.position.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func reset_ball():
+	ball.queue_free()
+	ball = newBall.instantiate()
+	add_child(ball)
+	
+func display_scores():
+	print("PLAYER 1: " + str(player_1.score))
+	print("PLAYER 2: " + str(player_2.score))
+	
 func _process(delta):
 	if player_1.position.x != _p1_in_pos:
-		print("UNO MOVIO")
 		player_1.position.x = _p1_in_pos
 	if player_2.position.x != _p2_in_pos:
-		print("DOS MOVIO")
 		player_2.position.x = _p2_in_pos
 	if Input.is_action_just_pressed("reset"):
-		ball.queue_free()
-		ball = newBall.instantiate()
-		
-		add_child(ball)
+		reset_ball()
+		display_scores()
+
+
+func _on_goal_1_on_reset():
+	player_1.score += 1
+	reset_ball()
+
+func _on_goal_2_on_reset():
+	player_2.score += 1
+	reset_ball()
