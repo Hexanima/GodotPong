@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://csm6qganj2eb4"]
+[gd_scene load_steps=7 format=3 uid="uid://csm6qganj2eb4"]
 
 [ext_resource type="PackedScene" uid="uid://di43kpnws4pbc" path="res://scenes/player.tscn" id="1_fgdj6"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_i12js"]
 [ext_resource type="PackedScene" uid="uid://bgto0gx8l5whr" path="res://scenes/floor.tscn" id="2_i6l62"]
 [ext_resource type="PackedScene" uid="uid://vysnp4p2w0un" path="res://scenes/ball.tscn" id="3_kolp3"]
 [ext_resource type="PackedScene" uid="uid://rr07ireidtfl" path="res://scenes/goal.tscn" id="5_u1nca"]
+[ext_resource type="PackedScene" uid="uid://dyhbp831cm6k7" path="res://scenes/score.tscn" id="6_7qgri"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i12js")
@@ -37,6 +38,18 @@ player = NodePath("../Player1")
 position = Vector2(288, 0)
 rotation = 3.14159
 player = NodePath("../Player2")
+
+[node name="Score1" parent="." instance=ExtResource("6_7qgri")]
+offset_left = -256.0
+offset_top = -128.0
+offset_right = -216.0
+offset_bottom = -105.0
+
+[node name="Score2" parent="." instance=ExtResource("6_7qgri")]
+offset_left = 216.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = -105.0
 
 [connection signal="on_reset" from="Goal1" to="." method="_on_goal_1_on_reset"]
 [connection signal="on_reset" from="Goal2" to="." method="_on_goal_2_on_reset"]
