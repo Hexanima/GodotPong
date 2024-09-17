@@ -35,11 +35,11 @@ func _process(delta):
 		reset_ball()
 
 func _on_goal_1_on_reset():
-	player_1.score += 1
-	score_1.text = str(player_1.score)
+	player_2.score += 1
+	score_2.text = str(player_2.score)
 	reset_ball()
 
 func _on_goal_2_on_reset():
-	player_2.score += 1
-	score_2.text = str(player_2.score)
+	player_1.score += 1
+	score_1.text = str(player_1.score)
 	reset_ball()
