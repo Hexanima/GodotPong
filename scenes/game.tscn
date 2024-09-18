@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csm6qganj2eb4"]
+[gd_scene load_steps=10 format=3 uid="uid://csm6qganj2eb4"]
 
 [ext_resource type="PackedScene" uid="uid://di43kpnws4pbc" path="res://scenes/player.tscn" id="1_fgdj6"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_i12js"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dyhbp831cm6k7" path="res://scenes/score.tscn" id="6_7qgri"]
 [ext_resource type="AudioStream" uid="uid://mwdf2senam8m" path="res://assets/sound/goal_1.wav" id="7_2g8hb"]
 [ext_resource type="AudioStream" uid="uid://buvyl5rtpggxt" path="res://assets/sound/goal_2.wav" id="8_a5fef"]
+[ext_resource type="PackedScene" uid="uid://8ams80kds0rs" path="res://scenes/controller.tscn" id="9_ocno7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i12js")
@@ -42,15 +43,15 @@ rotation = 3.14159
 player = NodePath("../Player2")
 
 [node name="Score1" parent="." instance=ExtResource("6_7qgri")]
-offset_left = -256.0
+offset_left = -128.0
 offset_top = -128.0
-offset_right = -216.0
+offset_right = -88.0
 offset_bottom = -105.0
 
 [node name="Score2" parent="." instance=ExtResource("6_7qgri")]
-offset_left = 216.0
+offset_left = 88.0
 offset_top = -128.0
-offset_right = 256.0
+offset_right = 128.0
 offset_bottom = -105.0
 
 [node name="Sound1" type="AudioStreamPlayer" parent="."]
@@ -60,6 +61,22 @@ bus = &"Goal"
 [node name="Sound2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a5fef")
 bus = &"Goal"
+
+[node name="Controller1" parent="." instance=ExtResource("9_ocno7")]
+offset_left = -256.0
+offset_top = -128.0
+offset_right = -240.0
+offset_bottom = 0.0
+UP = &"p1_up"
+DOWN = &"p1_down"
+
+[node name="Controller2" parent="." instance=ExtResource("9_ocno7")]
+offset_left = 192.0
+offset_top = -128.0
+offset_right = 208.0
+offset_bottom = 0.0
+UP = &"p2_up"
+DOWN = &"p2_down"
 
 [connection signal="on_reset" from="Goal1" to="." method="_on_goal_1_on_reset"]
 [connection signal="on_reset" from="Goal2" to="." method="_on_goal_2_on_reset"]

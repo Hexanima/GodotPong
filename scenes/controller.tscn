@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://8ams80kds0rs"]
+
+[ext_resource type="Script" path="res://scenes/controller.gd" id="1_247tq"]
+
+[node name="Controller" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 192.0
+script = ExtResource("1_247tq")
+
+[node name="Up" type="Button" parent="."]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+action_mode = 0
+text = "^"
+
+[node name="Down" type="Button" parent="."]
+layout_mode = 2
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 128.0
+offset_bottom = 320.0
+rotation = 3.14159
+action_mode = 0
+text = "^"
+icon_alignment = 1
+
+[connection signal="button_down" from="Up" to="." method="_on_up_button_down"]
+[connection signal="button_up" from="Up" to="." method="_on_up_button_up"]
+[connection signal="button_down" from="Down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="Down" to="." method="_on_down_button_up"]
