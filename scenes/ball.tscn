@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://vysnp4p2w0un"]
+[gd_scene load_steps=5 format=3 uid="uid://vysnp4p2w0un"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_tcmvw"]
+[ext_resource type="AudioStream" uid="uid://b7bbsd7lb2sgg" path="res://assets/sound/wall_hit.wav" id="2_bqbdb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kxlxv"]
 radius = 8.0
@@ -20,5 +21,10 @@ shape = SubResource("CircleShape2D_kxlxv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("SphereMesh_kn5jj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bqbdb")
+pitch_scale = 1.3
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
