@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://8ams80kds0rs"]
 
-[ext_resource type="Script" path="res://scenes/controller.gd" id="1_247tq"]
+[ext_resource type="Script" path="res://scripts/controller.gd" id="1_mkaev"]
 
 [node name="Controller" type="Control"]
 layout_mode = 3
@@ -8,7 +8,7 @@ anchors_preset = 0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 192.0
-script = ExtResource("1_247tq")
+script = ExtResource("1_mkaev")
 
 [node name="Up" type="Button" parent="."]
 layout_mode = 2
