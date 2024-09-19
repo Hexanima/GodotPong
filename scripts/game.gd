@@ -8,6 +8,7 @@ extends Node2D
 @onready var sound_1 = $Sound1
 @onready var sound_2 = $Sound2
 var newBall = preload("res://scenes/ball.tscn")
+var resizeScale := 0.1
 
 var _p1_in_pos
 var _p2_in_pos
@@ -27,6 +28,7 @@ func reset_ball():
 func display_scores():
 	print("PLAYER 1: " + str(player_1.score))
 	print("PLAYER 2: " + str(player_2.score))
+	print(player_1.scale)
 	
 func play_goal():
 	if randf_range(0,1) <= 0.65:
@@ -47,6 +49,10 @@ func _on_goal_1_on_reset():
 	score_2.text = str(player_2.score)
 	reset_ball()
 	play_goal()
+	#Resize players
+	player_1.scale = Vector2(player_1.scale.x, clampf(player_1.scale.y + resizeScale ,0.1, 250))
+	player_2.scale = Vector2(player_2.scale.x, clampf(player_2.scale.y - resizeScale, 0.1, 250))
+	
 
 func _on_goal_2_on_reset():
 	player_1.score += 1
@@ -54,3 +60,6 @@ func _on_goal_2_on_reset():
 	reset_ball()
 	play_goal()
 	
+	#Resize players
+	player_2.scale = Vector2(player_2.scale.x, clampf(player_2.scale.y + resizeScale, 0.1, 250))
+	player_1.scale = Vector2(player_1.scale.x, clampf(player_1.scale.y - resizeScale, 0.1, 250))
